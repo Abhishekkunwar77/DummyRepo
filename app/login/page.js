@@ -1,24 +1,39 @@
-'use client'
-import React from 'react';
+"use client";
+import React from "react";
 import { signIn, signOut, useSession } from "next-auth/react";
+import Navbar from "../component/Navbar";
+
 const page = () => {
   const { data: session } = useSession();
   console.log(session);
+
   if (session) {
     return (
       <>
-        <p>
-          Your are signed in as {data.session.name}
-          <button onClick={() => signOut()}>SignOut</button>
-        </p>
+        <Navbar />
+        <div className="signin-container">
+          <p className="signedin">
+            You are signed in as: <br /> Name: {session.user.name} <br /> Email:{" "}
+            {session.user.email}{" "}
+          </p>
+          <button className="signinbutton" onClick={() => signOut()}>
+            Sign Out
+          </button>
+        </div>
       </>
     );
   }
+
   return (
-    <div>
-      <p>Please LogIn</p>
-      <button onClick={() => signIn()}>SignIn</button>
-    </div>
+    <>
+      <Navbar />
+      <div className="please-login">
+        <p className="login-para">Please Log In</p>
+        <button className="signin-wala-button" onClick={() => signIn()}>
+          Sign In
+        </button>
+      </div>
+    </>
   );
 };
 

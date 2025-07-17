@@ -5,7 +5,7 @@ export default function Home() {
   return (
     <div>
       <Navbar />
-      <p className={styles.page}>Welcome to the Home Page</p>
+      <p className='home-para'>Welcome to the Home Page</p>
     </div>
   );
 }
