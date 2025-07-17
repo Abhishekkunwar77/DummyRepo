@@ -3,7 +3,7 @@ import React from "react";
 import { signIn, signOut, useSession } from "next-auth/react";
 import Navbar from "../component/Navbar";
 
-const page = () => {
+const LoginPage = () => {
   const { data: session } = useSession();
   console.log(session);
 
@@ -37,4 +37,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default LoginPage;
